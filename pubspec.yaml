@@ -1,7 +1,7 @@
 name: sabpaisa
 description: Sabpaisa Payment Gateway SDK (Unofficial)
 version: 0.0.1
-homepage:
+homepage: https://github.com/abbas-25/flutter-sabpaisa-sdk
 
 environment:
   sdk: '>=2.19.6 <3.0.0'
