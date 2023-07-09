@@ -17,7 +17,7 @@ class Sabpaisa {
 
     log("Sabpaisa SDK - Initiating Transaction with payload -> ${payload.getTransactionDetails}");
     try {
-      final List<String> response =
+      final List<Object?> response =
           await _channel.invokeMethod('callSabPaisaSdk', [
         payload.customerFirstName,
         payload.customerLastName,
@@ -33,12 +33,12 @@ class Sabpaisa {
 
       log("Sabpaisa SDK - Transaction Completed with response -> $response");
       return SabpaisaResponse.fromMap(
-          {"status": response.first, "transactionId": response[1]});
+          {"status": response.first as String, "transactionId": response[1] as String});
     } on PlatformException {
       log("Sabpaisa SDK - Status Failed", error: "Platform Exception");
       return null;
     } catch (e) {
-      log("Sabpaisa SDK - Status Failed", error: e);
+      log("Sabpaisa SDK - Error", error: e);
       return null;
     }
   }
